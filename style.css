@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.gallery {
+  display: flex;
+  height: 100vh;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  transition:
+    font-size 0.7s ease,
+    flex 0.7s ease;
+}
+
+.panel1 { background-image: url('https://picsum.photos/id/1015/800/800'); }
+.panel2 { background-image: url('https://picsum.photos/id/1016/800/800'); }
+.panel3 { background-image: url('https://picsum.photos/id/1018/800/800'); }
+.panel4 { background-image: url('https://picsum.photos/id/1020/800/800'); }
+.panel5 { background-image: url('https://picsum.photos/id/1024/800/800'); }
+
+.panel p {
+  font-size: 20px;
+  text-transform: uppercase;
+  transition: transform 0.5s;
+}
+
+/* Hide top & bottom text initially */
+.panel > *:first-child {
+  transform: translateY(-1600%);
+}
+
+.panel > *:last-child {
+  transform: translateY(1600%);
+}
+
+/* When active, bring them back */
+.panel.open-active > *:first-child,
+.panel.open-active > *:last-child {
+  transform: translateY(0);
+}
+
+.panel.open {
+  flex: 5;
+  font-size: 30px;
+}
